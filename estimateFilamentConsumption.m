@@ -31,9 +31,9 @@ function [consumption init] = estimateFilamentConsumption(position, extrusion, i
 %=========== Your implementation for task c) ===========
 
   if extrusion
-    distance = sqrt(pow2(position(1) - lastPosition(1)) + pow2(position(2) - lastPosition(2)) + pow2(position(3) - lastPosition(3)));
-    consumption = length + distance
+    length = length + norm(position-lastPosition);
   end
+  lastPosition = position;
 %=========== End of your implementation ===========
 
   % Return estimation
